@@ -1,0 +1,6 @@
+../Core/Src/WDT_PROGRAM.c:30:6:IWDT_voidChangePrescaler	1
+../Core/Src/WDT_PROGRAM.c:39:6:IWDT_voidEnableIwdtWithMaxValue	1
+../Core/Src/WDT_PROGRAM.c:48:6:IWDT_voidEnableIwdtWithGivenValue	1
+../Core/Src/WDT_PROGRAM.c:58:6:IWDT_voidRefreshIwdtWithValue	1
+../Core/Src/WDT_PROGRAM.c:65:6:IWDT_voidMakeSoftWareReset	1
+../Core/Src/WDT_PROGRAM.c:78:6:WWDT_voidMakeSoftWareReset	1

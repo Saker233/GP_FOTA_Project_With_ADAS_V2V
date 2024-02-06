@@ -1,0 +1,8 @@
+../Core/Src/RCC_PROGRAM.c:27:6:MRCC_voidEnableClock	16	static
+../Core/Src/RCC_PROGRAM.c:46:6:MRCC_voidDisableClock	16	static
+../Core/Src/RCC_PROGRAM.c:64:6:MRCC_voidInitSysClock	4	static
+../Core/Src/RCC_PROGRAM.c:171:6:MRCC_voidSetAHBPRE	4	static
+../Core/Src/RCC_PROGRAM.c:197:6:MRCC_voidSetAPB1Pre	4	static
+../Core/Src/RCC_PROGRAM.c:215:6:MRCC_voidSetAPB2Pre	4	static
+../Core/Src/RCC_PROGRAM.c:233:6:MRCC_voidSetADCPre	4	static
+../Core/Src/RCC_PROGRAM.c:249:6:MRCC_voidMcoClk	4	static

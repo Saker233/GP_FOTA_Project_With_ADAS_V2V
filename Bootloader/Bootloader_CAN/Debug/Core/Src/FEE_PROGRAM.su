@@ -1,0 +1,2 @@
+../Core/Src/FEE_PROGRAM.c:26:6:Fee_EraseImmediateBlock	16	static
+../Core/Src/FEE_PROGRAM.c:35:6:Fee_Write	16	static

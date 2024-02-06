@@ -1,0 +1,3 @@
+../Core/Src/GPIO_PROGRAM.c:36:6:MGPIO_voidSetPinMode	24	static
+../Core/Src/GPIO_PROGRAM.c:121:6:MGPIO_voidSetPinValue	24	static
+../Core/Src/GPIO_PROGRAM.c:182:6:MGPIO_u8GetPinValue	24	static

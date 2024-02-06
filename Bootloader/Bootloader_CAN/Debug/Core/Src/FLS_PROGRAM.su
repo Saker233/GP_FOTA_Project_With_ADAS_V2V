@@ -1,0 +1,8 @@
+../Core/Src/FLS_PROGRAM.c:44:6:FLS_u8ProgramOneWordFlash	32	static
+../Core/Src/FLS_PROGRAM.c:56:6:FLS_voidProgramDoubleWord	56	static
+../Core/Src/FLS_PROGRAM.c:75:6:FLS_voidProgramFlash	32	static
+../Core/Src/FLS_PROGRAM.c:109:6:FLS_voidErasePage	16	static
+../Core/Src/FLS_PROGRAM.c:140:6:FLS_voidEraseAppArea	24	static
+../Core/Src/FLS_PROGRAM.c:154:5:FLS_u32ReadWord	24	static
+../Core/Src/FLS_PROGRAM.c:161:6:FLS_voidProgramFlashBuffer	32	static
+../Core/Src/FLS_PROGRAM.c:176:6:FLS_voidProgramHalfWordFlash	16	static

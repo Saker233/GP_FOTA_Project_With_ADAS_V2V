@@ -1,0 +1,2 @@
+../Core/Src/CRC_PROGRAM.c:35:6:MCRC_u32CalculateCrcHw	3
+../Core/Src/CRC_PROGRAM.c:54:6:MCRC_voidCalculateCrcDirect	3
