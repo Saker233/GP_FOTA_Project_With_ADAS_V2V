@@ -66,7 +66,7 @@ static void MX_SPI1_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	uint8_t TxData = 0xFF;
+	uint8_t sendData[] = {0xFF};
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -89,7 +89,11 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-   NRF_Init(&hspi1);
+  NRF24L01_Init(&hspi1);
+  NRF24L01_Config(100, 32);
+
+  uint8_t txAddress[5] = {0x12, 0x34, 0x56, 0x78, 0x90};
+  NRF24L01_SetTxAddress(txAddress);
 
   /* USER CODE END 2 */
 
@@ -98,8 +102,10 @@ int main(void)
   while (1)
   {
 
-	  NRF_SendData(&hspi1, &TxData, 1);
 
+	   NRF24L01_SendData(sendData, sizeof(sendData));
+
+	   HAL_Delay(1000);
 
 
     /* USER CODE END WHILE */

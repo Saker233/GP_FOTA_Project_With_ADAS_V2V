@@ -66,7 +66,7 @@ static void MX_SPI1_Init(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-uint8_t RxData = 0;
+	uint8_t receivedData[4];
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -89,7 +89,11 @@ uint8_t RxData = 0;
   MX_GPIO_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-NRF_Init(&hspi1);
+  NRF24L01_Init(&hspi1);
+   NRF24L01_Config(100, 32);
+
+   uint8_t rxAddress[5] = {0x12, 0x34, 0x56, 0x78, 0x90};
+      NRF24L01_SetRxAddress(rxAddress);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -97,8 +101,10 @@ NRF_Init(&hspi1);
   while (1)
   {
 
-	  NRF_ReceiveData(&hspi1, &RxData);
-	  if (RxData == 0xFF)
+
+	 NRF24L01_ReceiveData(receivedData);
+
+	  if (receivedData[0] == 0xFF)
 	  {
 		  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
 	  }

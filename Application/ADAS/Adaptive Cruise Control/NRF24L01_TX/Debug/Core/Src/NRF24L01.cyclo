@@ -1,3 +1,6 @@
-../Core/Src/NRF24L01.c:4:6:NRF_Init	1
-../Core/Src/NRF24L01.c:33:6:NRF_SendData	1
-../Core/Src/NRF24L01.c:47:6:NRF_ReceiveData	2
+../Core/Src/NRF24L01.c:5:6:NRF24L01_Init	1
+../Core/Src/NRF24L01.c:21:6:NRF24L01_Config	1
+../Core/Src/NRF24L01.c:39:6:NRF24L01_SetTxAddress	1
+../Core/Src/NRF24L01.c:47:6:NRF24L01_SetRxAddress	1
+../Core/Src/NRF24L01.c:55:6:NRF24L01_SendData	1
+../Core/Src/NRF24L01.c:68:6:NRF24L01_ReceiveData	2
