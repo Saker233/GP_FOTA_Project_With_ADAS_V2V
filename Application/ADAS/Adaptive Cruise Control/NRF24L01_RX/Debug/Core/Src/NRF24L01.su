@@ -1,0 +1,3 @@
+../Core/Src/NRF24L01.c:4:6:NRF_Init	32	static
+../Core/Src/NRF24L01.c:33:6:NRF_SendData	24	static
+../Core/Src/NRF24L01.c:47:6:NRF_ReceiveData	32	static
