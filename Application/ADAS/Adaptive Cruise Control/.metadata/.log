@@ -1,0 +1,47 @@
+!SESSION 2024-02-09 14:48:30.821 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  E:\plan\projects\ITI\Graduation Project\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive Cruise Control\NRF24L01_TX\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 E:\plan\projects\ITI\Graduation Project\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive Cruise Control\NRF24L01_TX\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-09 14:48:45.957
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-09 14:48:45.977
+!MESSAGE Log4j2 initialized with config file E:\plan\projects\ITI\Graduation Project\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive Cruise Control\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-09 14:48:56.440
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-09 14:49:12.999
+!MESSAGE Indexed 'NRF24L01_TX' (28 sources, 73 headers) in 11.6 sec: 9,940 declarations; 43,402 references; 15 unresolved inclusions; 1,003 syntax errors; 3,399 unresolved names (6%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-09 15:07:24.715
+!MESSAGE Indexed 'NRF24L01_RX' (23 sources, 120 headers) in 6.17 sec: 11,412 declarations; 42,537 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.44%)
+!SESSION 2024-02-11 20:39:33.538 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  E:\plan\projects\ITI\Graduation Project\stm32_hal_nrf24l01p\stm32f411_fw_nrf24l01p\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 E:\plan\projects\ITI\Graduation Project\stm32_hal_nrf24l01p\stm32f411_fw_nrf24l01p\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-02-11 20:41:51.538
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-02-11 20:41:51.570
+!MESSAGE Log4j2 initialized with config file E:\plan\projects\ITI\Graduation Project\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive Cruise Control\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-02-11 20:43:09.826
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-11 20:43:30.045
+!MESSAGE Indexed 'stm32f411_fw_nrf24l01p' (25 sources, 104 headers) in 5.64 sec: 8,162 declarations; 30,672 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.38%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-11 21:15:39.852
+!MESSAGE Indexed 'NRF' (24 sources, 120 headers) in 8.08 sec: 11,374 declarations; 40,370 references; 5 unresolved inclusions; 989 syntax errors; 1,163 unresolved names (2.2%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-02-11 21:52:17.664
+!MESSAGE Indexed 'NRF' (25 sources, 123 headers) in 5.58 sec: 11,528 declarations; 42,789 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.44%)

@@ -1,6 +1,0 @@
-../Core/Src/NRF24L01.c:5:6:NRF24L01_Init	40	static
-../Core/Src/NRF24L01.c:21:6:NRF24L01_Config	24	static
-../Core/Src/NRF24L01.c:39:6:NRF24L01_SetTxAddress	24	static
-../Core/Src/NRF24L01.c:47:6:NRF24L01_SetRxAddress	24	static
-../Core/Src/NRF24L01.c:55:6:NRF24L01_SendData	24	static
-../Core/Src/NRF24L01.c:68:6:NRF24L01_ReceiveData	24	static

@@ -1,0 +1,20 @@
+15:05:49 **** Incremental Build of configuration Debug for project NRF24L01_TX ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/NRF24L01.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xC -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/NRF24L01.d" -MT"Core/Src/NRF24L01.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/NRF24L01.o"
+arm-none-eabi-gcc -o "NRF24L01_TX.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\plan\projects\ITI\Graduation Project\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive Cruise Control\NRF24L01_TX\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="NRF24L01_TX.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: NRF24L01_TX.elf
+ 
+arm-none-eabi-size  NRF24L01_TX.elf 
+arm-none-eabi-objdump -h -S NRF24L01_TX.elf  > "NRF24L01_TX.list"
+arm-none-eabi-objcopy  -O ihex NRF24L01_TX.elf  "NRF24L01_TX.hex"
+   text	   data	    bss	    dec	    hex	filename
+   7788	     20	   1660	   9468	   24fc	NRF24L01_TX.elf
+Finished building: default.size.stdout
+ 
+Finished building: NRF24L01_TX.hex
+ 
+Finished building: NRF24L01_TX.list
+ 
+
+15:05:51 Build Finished. 0 errors, 0 warnings. (took 1s.689ms)
+
