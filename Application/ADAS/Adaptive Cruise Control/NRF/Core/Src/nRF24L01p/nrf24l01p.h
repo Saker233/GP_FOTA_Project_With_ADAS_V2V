@@ -1,11 +1,11 @@
-  
-/*
- *  nrf24l01_plus.h
- *
- *  Created on: 2021. 7. 20.
- *      Author: mokhwasomssi
- * 
- */
+/*******************************************************************************************/
+/*  Module       :   NRF24L01                                                            */
+/*  File Name    :   nrf24l01p.h                                                          */
+/*  Description  :   Interface File of the NRF24L01  Driver                              */
+/*  Author       :   AHMED_REDA & AHMED_KHALED                                             */
+/*  Date         :   12/2/2024                                                              */
+/*******************************************************************************************/
+
 
 
 #ifndef __NRF24L01P_H__
