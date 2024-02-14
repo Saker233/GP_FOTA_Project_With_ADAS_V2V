@@ -73,6 +73,6 @@ void MCRC_voidCalculateCrcDirect(u32 Copy_u32BaseAddress, u32 Copy_u32WordNumber
 	   }
 	   else
 	   {
-		  /*!<TODO: Null pointer detected */
+		  /* Null pointer detected */
 	   }
 }

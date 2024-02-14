@@ -109,8 +109,101 @@ void CAN_VoidInit(CAN_TypeDef* CANx, CAN_InitTypeDef* CANInitStruct)
  * Initializes specific filter bank
  * @param CAN_FilterInitStruct
  */
-void CAN_VoidFilterSet(CAN_FilterInitTypeDef* CAN_FilterInitStruct)
+void CAN_VoidFilterSet(CAN_FilterInitTypeDef* CAN_FilterInitStruct, CAN_TypeDef* CANx)
 {
+
+	/* Initialization mode for the filter */
+	SET_BIT(CANx->FMR, 0);
+
+
+	/* Getting filter mode positon */
+	u32 local_u32FilterPos =  CAN_FilterInitStruct->FilterBank;
+
+
+	/* Deactivate filter for a while */
+	CLR_BIT(CANx->FA1R, CAN_FilterInitStruct->FilterBank);
+
+
+	/* Filter Scaling */
+	if(CAN_FilterInitStruct->FilterScale == CAN_FILTERSCALE_16BIT)
+	{
+		/* 16 bit scaling */
+		CLR_BIT(CANx->FS1R, local_u32FilterPos);
+
+		/* Filter mapping
+				 *   15-8          7-5    4   3    2-0
+				 * STID[10:3] STID[2:0] RTR IDE EXID[17:15]
+				 * */
+
+		/* Assigning first 16 bit idetfier */
+		CANx->sFilterRegister[CAN_FilterInitStruct->FilterBank].FR1 = (((CAN_FilterInitStruct->FilterMaskIdLow & 0x0000FFFF) << 16) |
+																			(CAN_FilterInitStruct->FilterIdLow & 0x0000FFFF));
+
+		/* Assigning the sedond 16 bits */
+		CANx->sFilterRegister[CAN_FilterInitStruct->FilterBank].FR2 = (((CAN_FilterInitStruct->FilterMaskIdHigh & 0x0000FFFF) << 16) |
+																		(CAN_FilterInitStruct->FilterIdHigh & 0x0000FFFF));
+
+	}
+	else if(CAN_FilterInitStruct->FilterScale == CAN_FILTERSCALE_32BIT)
+	{
+		/* 32-bit scale for the filter */
+		SET_BIT(CANx->FS1R, local_u32FilterPos);
+
+		/* Filter mapping
+				 *   31-24      23-21     21-16  		15-8	 7-3	  2   1  0
+				 * STID[10:3] STID[2:0] EXID[17:13] EXID[12:5] EXID[4:0] IDE RTR 0
+				 * */
+
+		/* 32 bit identfier */
+
+		CANx->sFilterRegister[CAN_FilterInitStruct->FilterBank].FR1 = (((CAN_FilterInitStruct->FilterIdHigh  & 0x0000FFFF) << 16) |
+																		(CAN_FilterInitStruct->FilterIdLow & 0x0000FFFF));
+
+
+		CANx->sFilterRegister[CAN_FilterInitStruct->FilterBank].FR2 = (((CAN_FilterInitStruct->FilterMaskIdHigh & 0x0000FFFF) << 16) |
+																		(CAN_FilterInitStruct->FilterMaskIdLow & 0x0000FFFF));
+	}
+	else
+	{
+		/* NOTHING */
+	}
+
+	if(CAN_FilterInitStruct->FilterMode == CAN_FILTERMODE_IDMASK)
+	{
+
+		/* Masking mode */
+		CLR_BIT(CANx->FM1R, local_u32FilterPos);
+	}
+	else
+	{
+		/* List mode */
+		SET_BIT(CANx->FM1R, local_u32FilterPos);
+	}
+
+
+	/* FIFo Assignment */
+	if(CAN_FilterInitStruct->FilterFIFOAssignment == CAN_FILTER_FIFO0)
+	{
+		/*  FIFO ZERO */
+		CLR_BIT(CANx->FFA1R, local_u32FilterPos);
+	}
+	else
+	{
+		/* FIFO 1 */
+		SET_BIT(CANx->FFA1R, local_u32FilterPos);
+	}
+
+
+	/* Activate Filter */
+
+	if(CAN_FilterInitStruct->CAN_FilterActivation == ENABLE)
+	{
+		SET_BIT(CANx->FA1R, local_u32FilterPos);
+	}
+
+	/* Leave the init mode */
+	CLR_BIT(CANx->FMR, 0);
+
 
 }
 
@@ -136,7 +229,7 @@ void CAN_VoidReceive(CAN_TypeDef* CANx, u8 Copy_u8FifoNumber, CanRxMsg* RxMessag
 	/* Get the Remote Transsmosiion request, Data Frame or Remote Frame -> bit 1 */
 	RxMessage->RTR = (CANx->sFIFOMailBox[Copy_u8FifoNumber].RIR & (u8)0x02) ;
 
-	/* Get the filter index, [0:7] in RDTR, contains the index of the filter message stored in the mailbox*/
+	/* Get the filter index, [8:15] in RDTR, contains the index of the filter message stored in the mailbox*/
 	RxMessage->FMI =  ((CANx->sFIFOMailBox[Copy_u8FifoNumber].RDTR >> 8) & (u8)0xFF) ;
 
 
@@ -152,6 +245,8 @@ void CAN_VoidReceive(CAN_TypeDef* CANx, u8 Copy_u8FifoNumber, CanRxMsg* RxMessag
 		/* Storing the the 28 bits of the standard frame -> [0:17]  ,  [21:31] */
 		RxMessage->ID = ( CANx->sFIFOMailBox[Copy_u8FifoNumber].RIR >> 3 ) & ((u32)0x1FFFFFFF) ;
 	}
+
+
 
 	/* Looping over the data bytes */
 	for (Local_u8ReceivDataCounter = 0;  Local_u8ReceivDataCounter< RxMessage->DATA_LENGHT; Local_u8ReceivDataCounter++)
@@ -194,7 +289,7 @@ void CAN_VoidReceive(CAN_TypeDef* CANx, u8 Copy_u8FifoNumber, CanRxMsg* RxMessag
 u8 CAN_VoidTransmit(CAN_TypeDef* CANx, CanTxMsg*  TxMessage)
 {
 	u8 Local_u8TransMailboxNumber = 0;
-	u8 Local_u8TransDataCounter;
+
 
 	/* Pooling on the Transmit mailbox 0 to be empty */
 	while(!(CAN1->TSR & CAN_TSR_TME0));
@@ -208,7 +303,7 @@ u8 CAN_VoidTransmit(CAN_TypeDef* CANx, CanTxMsg*  TxMessage)
 
 	if (TxMessage->IDE)
 	{
-		/* Standrad */
+		/* Standard */
 		CANx->sTxMailBox[Local_u8TransMailboxNumber].TIR |= (TxMessage->ID << 21);
 	}
 	else
@@ -218,7 +313,7 @@ u8 CAN_VoidTransmit(CAN_TypeDef* CANx, CanTxMsg*  TxMessage)
 	}
 
 	/* Anding TDTR with halfword mask then oring with the data length  */
-	CANx->sTxMailBox[Local_u8TransMailboxNumber].TDTR = (CANx->sTxMailBox[Local_u8TransMailboxNumber].TDTR & (~0x0f))
+	CANx->sTxMailBox[Local_u8TransMailboxNumber].TDTR = (CANx->sTxMailBox[Local_u8TransMailboxNumber].TDTR & ((u8)(~0x0f)))
 					                                               | TxMessage->DATA_LENGHT;
 
 
@@ -226,19 +321,34 @@ u8 CAN_VoidTransmit(CAN_TypeDef* CANx, CanTxMsg*  TxMessage)
 	CANx->sTxMailBox[Local_u8TransMailboxNumber].TDLR = 0;
 	CANx->sTxMailBox[Local_u8TransMailboxNumber].TDHR = 0;
 
-	for ( Local_u8TransDataCounter = 0; Local_u8TransDataCounter < TxMessage->DATA_LENGHT; Local_u8TransDataCounter++)
-	{
-		if (Local_u8TransDataCounter < 4)
-		{
-			/* Getting the lowest 16 bits 2 bytes  */
-			CANx->sTxMailBox[Local_u8TransMailboxNumber].TDLR |= (TxMessage->DATA[Local_u8TransDataCounter] << (8 * Local_u8TransDataCounter));
-		}
-		else
-		{
-			/* Getting the highest 16 bits 2 bytes */
-			CANx->sTxMailBox[Local_u8TransMailboxNumber].TDHR |= (TxMessage->DATA[Local_u8TransDataCounter] << (8 * (Local_u8TransDataCounter - 4)));
-		}
-	}
+	WRITE_REG(CANx->sTxMailBox[Local_u8TransMailboxNumber].TDHR,
+						(TxMessage->DATA[7] << 24) |
+						(TxMessage->DATA[6] << 16) |
+						(TxMessage->DATA[5] << 8 ) |
+						(TxMessage->DATA[4]));
+
+
+	WRITE_REG(CANx->sTxMailBox[Local_u8TransMailboxNumber].TDLR,
+						(TxMessage->DATA[3] << 24) |
+						(TxMessage->DATA[2] << 16) |
+						(TxMessage->DATA[1] << 8 ) |
+						(TxMessage->DATA[0]));
+
+//	for ( Local_u8TransDataCounter = 0; Local_u8TransDataCounter < TxMessage->DATA_LENGHT; Local_u8TransDataCounter++)
+//	{
+//		if (Local_u8TransDataCounter < 4)
+//		{
+//			/* Getting the lowest 16 bits 2 bytes  */
+//			CANx->sTxMailBox[Local_u8TransMailboxNumber].TDLR |= (TxMessage->DATA[Local_u8TransDataCounter] << (8 * Local_u8TransDataCounter));
+//		}
+//		else
+//		{
+//			/* Getting the highest 16 bits 2 bytes */
+//			CANx->sTxMailBox[Local_u8TransMailboxNumber].TDHR |= (TxMessage->DATA[Local_u8TransDataCounter] << (8 * (Local_u8TransDataCounter - 4)));
+//		}
+//	}
+
+
 
 	/* Making a request to start transmit */
 	SET_BIT(CANx->sTxMailBox[Local_u8TransMailboxNumber].TIR, CAN_TI0R_TXRQ);

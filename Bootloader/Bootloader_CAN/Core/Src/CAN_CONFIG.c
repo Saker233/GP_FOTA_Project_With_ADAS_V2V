@@ -14,13 +14,16 @@
 
 #include "CAN_INTERFACE.h"
 
-/*FOR BIT RATE 500KHZ , PRESCALE = 1, SJW = 0 ,SEG1 = 0X0C , SEG2 = 0X01 , SAMPLE PIONT AT 87.5 , BTR=  0x001C0000 */
+/*FOR BIT RATE 500KHZ , PRESCALE = 1, SJW = 0 ,SEG1 = 0X0C , SEG2 = 0X01 , SAMPLE PIONT AT 87.5 , BTR=  0x001C0000
+
+
+ FOR BIT RATE 500KHZ , PRESCALE = 1, SJW = 16 ,SEG1 = 0X0D , SEG2 = 0X02 , SAMPLE PIONT AT 87.5 , BTR=  0x001C0000 */
 CAN_InitTypeDef CAN_InitStruct ={
-		1,
-		0,
-		0,
-		0x0C,
-		0x01,
+		1, 				//prescalr
+		0, 				//mode
+		0x10, 			// sjw
+		0x0D, 			//bs1
+		0x02, 			//bs2
 		DISABLE,
 		DISABLE,
 		DISABLE,
@@ -29,13 +32,14 @@ CAN_InitTypeDef CAN_InitStruct ={
 		DISABLE,
 };
 
-CAN_FilterInitTypeDef CAN_FilterInitStruct_1 = {
-		0x00600000,
-		0x00600000,
-		CAN_FilterMode_IdMask,
-		1,
-		CAN_FilterScale_32bit,
-		CAN_Filter_FIFO0,
+CAN_FilterInitTypeDef CAN_FilterInitStruct_0 = {
+		(0x65D)<<5,
+		0x0000,
+		(0x65D)<<5,
+		0x0000,
+		CAN_FILTER_FIFO0,
+		0,
+		CAN_FILTERSCALE_32BIT,
 		ENABLE
 };
 
@@ -60,10 +64,10 @@ CAN_FilterInitTypeDef CAN_FilterInitStruct_3 = {
 };
 
 CAN_FilterInitTypeDef CAN_FilterInitStruct_4 = {
-		0x00A00000,
-		0x00A00000,
+		0x00800000,
+		0x00800000,
 		CAN_FilterMode_IdMask,
-		4,
+		3,
 		CAN_FilterScale_32bit,
 		CAN_Filter_FIFO0,
 		ENABLE

@@ -5,6 +5,9 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/BLM_program.c \
+../Core/Src/Bootloader_PROGRAM.c \
+../Core/Src/CANIF_PROGRAM.c \
 ../Core/Src/CAN_CONFIG.c \
 ../Core/Src/CAN_PROGRAM.c \
 ../Core/Src/CRC_PROGRAM.c \
@@ -22,6 +25,9 @@ C_SRCS += \
 ../Core/Src/system_stm32f1xx.c 
 
 OBJS += \
+./Core/Src/BLM_program.o \
+./Core/Src/Bootloader_PROGRAM.o \
+./Core/Src/CANIF_PROGRAM.o \
 ./Core/Src/CAN_CONFIG.o \
 ./Core/Src/CAN_PROGRAM.o \
 ./Core/Src/CRC_PROGRAM.o \
@@ -39,6 +45,9 @@ OBJS += \
 ./Core/Src/system_stm32f1xx.o 
 
 C_DEPS += \
+./Core/Src/BLM_program.d \
+./Core/Src/Bootloader_PROGRAM.d \
+./Core/Src/CANIF_PROGRAM.d \
 ./Core/Src/CAN_CONFIG.d \
 ./Core/Src/CAN_PROGRAM.d \
 ./Core/Src/CRC_PROGRAM.d \
@@ -63,7 +72,7 @@ Core/Src/%.o Core/Src/%.su Core/Src/%.cyclo: ../Core/Src/%.c Core/Src/subdir.mk
 clean: clean-Core-2f-Src
 
 clean-Core-2f-Src:
-	-$(RM) ./Core/Src/CAN_CONFIG.cyclo ./Core/Src/CAN_CONFIG.d ./Core/Src/CAN_CONFIG.o ./Core/Src/CAN_CONFIG.su ./Core/Src/CAN_PROGRAM.cyclo ./Core/Src/CAN_PROGRAM.d ./Core/Src/CAN_PROGRAM.o ./Core/Src/CAN_PROGRAM.su ./Core/Src/CRC_PROGRAM.cyclo ./Core/Src/CRC_PROGRAM.d ./Core/Src/CRC_PROGRAM.o ./Core/Src/CRC_PROGRAM.su ./Core/Src/FEE_PROGRAM.cyclo ./Core/Src/FEE_PROGRAM.d ./Core/Src/FEE_PROGRAM.o ./Core/Src/FEE_PROGRAM.su ./Core/Src/FLS_PROGRAM.cyclo ./Core/Src/FLS_PROGRAM.d ./Core/Src/FLS_PROGRAM.o ./Core/Src/FLS_PROGRAM.su ./Core/Src/GPIO_PROGRAM.cyclo ./Core/Src/GPIO_PROGRAM.d ./Core/Src/GPIO_PROGRAM.o ./Core/Src/GPIO_PROGRAM.su ./Core/Src/NVM_PROGRAM.cyclo ./Core/Src/NVM_PROGRAM.d ./Core/Src/NVM_PROGRAM.o ./Core/Src/NVM_PROGRAM.su ./Core/Src/RCC_PROGRAM.cyclo ./Core/Src/RCC_PROGRAM.d ./Core/Src/RCC_PROGRAM.o ./Core/Src/RCC_PROGRAM.su ./Core/Src/WDT_PROGRAM.cyclo ./Core/Src/WDT_PROGRAM.d ./Core/Src/WDT_PROGRAM.o ./Core/Src/WDT_PROGRAM.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32f1xx_hal_msp.cyclo ./Core/Src/stm32f1xx_hal_msp.d ./Core/Src/stm32f1xx_hal_msp.o ./Core/Src/stm32f1xx_hal_msp.su ./Core/Src/stm32f1xx_it.cyclo ./Core/Src/stm32f1xx_it.d ./Core/Src/stm32f1xx_it.o ./Core/Src/stm32f1xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f1xx.cyclo ./Core/Src/system_stm32f1xx.d ./Core/Src/system_stm32f1xx.o ./Core/Src/system_stm32f1xx.su
+	-$(RM) ./Core/Src/BLM_program.cyclo ./Core/Src/BLM_program.d ./Core/Src/BLM_program.o ./Core/Src/BLM_program.su ./Core/Src/Bootloader_PROGRAM.cyclo ./Core/Src/Bootloader_PROGRAM.d ./Core/Src/Bootloader_PROGRAM.o ./Core/Src/Bootloader_PROGRAM.su ./Core/Src/CANIF_PROGRAM.cyclo ./Core/Src/CANIF_PROGRAM.d ./Core/Src/CANIF_PROGRAM.o ./Core/Src/CANIF_PROGRAM.su ./Core/Src/CAN_CONFIG.cyclo ./Core/Src/CAN_CONFIG.d ./Core/Src/CAN_CONFIG.o ./Core/Src/CAN_CONFIG.su ./Core/Src/CAN_PROGRAM.cyclo ./Core/Src/CAN_PROGRAM.d ./Core/Src/CAN_PROGRAM.o ./Core/Src/CAN_PROGRAM.su ./Core/Src/CRC_PROGRAM.cyclo ./Core/Src/CRC_PROGRAM.d ./Core/Src/CRC_PROGRAM.o ./Core/Src/CRC_PROGRAM.su ./Core/Src/FEE_PROGRAM.cyclo ./Core/Src/FEE_PROGRAM.d ./Core/Src/FEE_PROGRAM.o ./Core/Src/FEE_PROGRAM.su ./Core/Src/FLS_PROGRAM.cyclo ./Core/Src/FLS_PROGRAM.d ./Core/Src/FLS_PROGRAM.o ./Core/Src/FLS_PROGRAM.su ./Core/Src/GPIO_PROGRAM.cyclo ./Core/Src/GPIO_PROGRAM.d ./Core/Src/GPIO_PROGRAM.o ./Core/Src/GPIO_PROGRAM.su ./Core/Src/NVM_PROGRAM.cyclo ./Core/Src/NVM_PROGRAM.d ./Core/Src/NVM_PROGRAM.o ./Core/Src/NVM_PROGRAM.su ./Core/Src/RCC_PROGRAM.cyclo ./Core/Src/RCC_PROGRAM.d ./Core/Src/RCC_PROGRAM.o ./Core/Src/RCC_PROGRAM.su ./Core/Src/WDT_PROGRAM.cyclo ./Core/Src/WDT_PROGRAM.d ./Core/Src/WDT_PROGRAM.o ./Core/Src/WDT_PROGRAM.su ./Core/Src/main.cyclo ./Core/Src/main.d ./Core/Src/main.o ./Core/Src/main.su ./Core/Src/stm32f1xx_hal_msp.cyclo ./Core/Src/stm32f1xx_hal_msp.d ./Core/Src/stm32f1xx_hal_msp.o ./Core/Src/stm32f1xx_hal_msp.su ./Core/Src/stm32f1xx_it.cyclo ./Core/Src/stm32f1xx_it.d ./Core/Src/stm32f1xx_it.o ./Core/Src/stm32f1xx_it.su ./Core/Src/syscalls.cyclo ./Core/Src/syscalls.d ./Core/Src/syscalls.o ./Core/Src/syscalls.su ./Core/Src/sysmem.cyclo ./Core/Src/sysmem.d ./Core/Src/sysmem.o ./Core/Src/sysmem.su ./Core/Src/system_stm32f1xx.cyclo ./Core/Src/system_stm32f1xx.d ./Core/Src/system_stm32f1xx.o ./Core/Src/system_stm32f1xx.su
 
 .PHONY: clean-Core-2f-Src
 

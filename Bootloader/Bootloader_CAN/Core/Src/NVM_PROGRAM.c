@@ -51,7 +51,7 @@ void NVM_voidEraseRestoreHeaderPage(u32 Copy_u32Address, u32 Copy_u32NewData)
 
 	for (Local_u16DataCounter = 0 ; Local_u16DataCounter < Local_u16DataIndex ;Local_u16DataCounter++ )
 	{
-		Fee_Write(Local_u32AddressArray[Local_u16DataCounter], Local_u32DataArray[Local_u16DataCounter] );
+		Fee_Write(Local_u32AddressArray[Local_u16DataCounter], Local_u32DataArray[Local_u16DataCounter]);
 	}
 	Fee_Write(Copy_u32Address, Copy_u32NewData);
 }

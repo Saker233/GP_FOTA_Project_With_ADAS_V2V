@@ -1,0 +1,14 @@
+../Core/Src/Bootloader_PROGRAM.c:42:6:BL_Check_Active_Bank	8
+../Core/Src/Bootloader_PROGRAM.c:100:5:BL_u32Check_Bank2	3
+../Core/Src/Bootloader_PROGRAM.c:127:4:BL_u8Check_Bank_Validity	5
+../Core/Src/Bootloader_PROGRAM.c:157:6:BL_voidUpdate_Control_Page	4
+../Core/Src/Bootloader_PROGRAM.c:213:6:BL_void_Jump_To_Bootloader	1
+../Core/Src/Bootloader_PROGRAM.c:223:6:BL_voidJump_To_Bank	1
+../Core/Src/Bootloader_PROGRAM.c:243:5:BL_u32Calculate_CRC_Bank1	1
+../Core/Src/Bootloader_PROGRAM.c:263:5:BL_u32Calculate_CRC_Bank2	1
+../Core/Src/Bootloader_PROGRAM.c:285:6:BL_voidCopy_Bank2_To_Bank1	2
+../Core/Src/Bootloader_PROGRAM.c:345:6:BL_voidCopy_Bank1_To_Bank2	2
+../Core/Src/Bootloader_PROGRAM.c:402:6:BL_voidSet_Specifying_Flag_Make_SW_Reset	1
+../Core/Src/Bootloader_PROGRAM.c:416:6:BL_voidRecieve_APP	5
+../Core/Src/Bootloader_PROGRAM.c:481:6:BL_voidVector_Table_Offset	1
+../Core/Src/Bootloader_PROGRAM.c:492:6:BL_void_Finish_Bootloader	2

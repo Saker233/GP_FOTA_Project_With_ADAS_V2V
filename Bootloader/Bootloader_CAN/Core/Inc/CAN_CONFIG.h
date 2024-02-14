@@ -53,17 +53,36 @@ typedef struct
 
 typedef struct
 {
-  u32 CAN_FilterId;         // contain ID of filter bank
+  u32 FilterIdHigh;         /* Specifies the filter identification number (MSBs for a 32-bit
+                                       configuration, first one for a 16-bit configuration).
+                                       This parameter must be a number between Min_Data = 0x0000 and Max_Data = 0xFFFF. */
 
-  u32 CAN_FilterMaskId;     //contain Mask of filter bank
+  u32 FilterIdLow;     /* Specifies the filter identification number (LSBs for a 32-bit
+                                       configuration, second one for a 16-bit configuration).
+                                       This parameter must be a number between Min_Data = 0x0000 and Max_Data = 0xFFFF. */
 
-  u8 CAN_FilterMode;        // specify the mode of filter "ID OR MASK"
+  u32 FilterMaskIdHigh;        /* Specifies the filter mask number or identification number,
+                                       according to the mode (MSBs for a 32-bit configuration,
+                                       first one for a 16-bit configuration).
+                                       This parameter must be a number between Min_Data = 0x0000 and Max_Data = 0xFFFF. */
 
-  u8 CAN_FilterBankNumber;  //contain the filter bank number to specify
+  u32 FilterMaskIdLow;  /* Specifies the filter mask number or identification number,
+                                       according to the mode (LSBs for a 32-bit configuration,
+                                       second one for a 16-bit configuration).
+                                       This parameter must be a number between Min_Data = 0x0000 and Max_Data = 0xFFFF. */
 
-  u8 CAN_FilterBankScale;   // Specify the bank scale type " 16 or 32"
+  u32 FilterFIFOAssignment;   /* Specifies the FIFO (0 or 1U) which will be assigned to the filter.
+                                       This parameter can be a value of @ref CAN_filter_FIFO */
 
-  u8 CAN_FilterFIFONumber; //contain the FIFO number to add bank to it
+  u32 FilterBank; /* Specifies the filter bank which will be initialized.
+                                       For single CAN instance(14 dedicated filter banks),
+                                       this parameter must be a number between Min_Data = 0 and Max_Data = 13. */
+
+  u32 FilterMode;		/* Specifies the filter mode to be initialized.
+                                       This parameter can be a value of @ref CAN_filter_mode */
+
+  u32 FilterScale;		/* Specifies the filter scale.
+                                       This parameter can be a value of @ref CAN_filter_scale */
 
   FunctionalState CAN_FilterActivation; // specify the state of the filter "ENABLE OR DISABLE"
 

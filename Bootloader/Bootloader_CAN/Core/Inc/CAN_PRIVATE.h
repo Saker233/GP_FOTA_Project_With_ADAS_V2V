@@ -225,6 +225,23 @@
 #define  CAN_RDH1R_DATA6                     ((u32)0x00FF0000)        /* Data byte 6 */
 #define  CAN_RDH1R_DATA7                     ((u32)0xFF000000)        /* Data byte 7 */
 
+/** @defgroup CAN_receive_FIFO_number CAN Receive FIFO Number **/
+#define CAN_RX_FIFO0                ((u32)(0x0))  /* CAN receive FIFO 0 */
+#define CAN_RX_FIFO1                ((u32)(0x1))  /* CAN receive FIFO 1 */
+
+/** @defgroup CAN_filter_FIFO CAN Filter FIFO **/
+#define CAN_FILTER_FIFO0            ((u32)(0x0))  /* Filter FIFO 0 assignment for filter x */
+#define CAN_FILTER_FIFO1            ((u32)(0x1))  /* Filter FIFO 1 assignment for filter x */
+
+/** @defgroup CAN_filter_mode CAN Filter Mode **/
+#define CAN_FILTERMODE_IDMASK       ((u32)(0x0))  /* Identifier mask mode */
+#define CAN_FILTERMODE_IDLIST       ((u32)(0x1))  /* Identifier list mode */
+
+/** @defgroup CAN_filter_scale CAN Filter Scale */
+#define CAN_FILTERSCALE_16BIT       ((u32)(0x0))  /* Two 16-bit filters */
+#define CAN_FILTERSCALE_32BIT       ((u32)(0x1))  /* One 32-bit filter  */
+
+
 
 
 #define FRAME_DATA             				    8

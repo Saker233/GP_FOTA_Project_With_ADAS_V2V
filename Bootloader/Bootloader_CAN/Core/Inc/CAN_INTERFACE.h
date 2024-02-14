@@ -92,7 +92,7 @@ void CAN_VoidInit(CAN_TypeDef* CANx, CAN_InitTypeDef* CANInitStruct);
  * Initializes specific filter bank
  * @param CAN_FilterInitStruct
  */
-void CAN_VoidFilterSet(CAN_FilterInitTypeDef* CAN_FilterInitStruct);
+void CAN_VoidFilterSet(CAN_FilterInitTypeDef* CAN_FilterInitStruct, CAN_TypeDef* CANx);
 
 
 

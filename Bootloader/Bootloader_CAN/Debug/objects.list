@@ -1,3 +1,6 @@
+"./Core/Src/BLM_program.o"
+"./Core/Src/Bootloader_PROGRAM.o"
+"./Core/Src/CANIF_PROGRAM.o"
 "./Core/Src/CAN_CONFIG.o"
 "./Core/Src/CAN_PROGRAM.o"
 "./Core/Src/CRC_PROGRAM.o"

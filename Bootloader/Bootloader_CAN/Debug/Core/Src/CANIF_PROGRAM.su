@@ -1,0 +1,7 @@
+../Core/Src/CANIF_PROGRAM.c:36:16:CanIf_voidReceive_Struct	24	static
+../Core/Src/CANIF_PROGRAM.c:57:16:CanIf_voidTransmit_Struct	24	static
+../Core/Src/CANIF_PROGRAM.c:79:16:CanIf_voidReceive_Word	24	static
+../Core/Src/CANIF_PROGRAM.c:105:16:CanIf_voidReceive_Byte	24	static
+../Core/Src/CANIF_PROGRAM.c:133:16:CanIf_voidReceive_Block	24	static
+../Core/Src/CANIF_PROGRAM.c:160:16:CanIf_voidTransmit_Byte	48	static
+../Core/Src/CANIF_PROGRAM.c:188:16:CanIf_voidTransmit_Word	56	static
