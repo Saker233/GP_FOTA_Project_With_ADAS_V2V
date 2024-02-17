@@ -40,11 +40,12 @@ void DCM_Init(void);
 void DCM_Move(uint8_t  DCM_Number,uint8_t Duty_Cycle, DCM_DirectionType Direction);
 void DCM_Stop(uint8_t  DCM_Number);
 
-uint8_t App_CarMoveForward(uint8_t Speed);
-uint8_t App_CarMoveReverse(uint8_t Speed);
-uint8_t App_CarMoveRight(uint8_t Speed);
-uint8_t App_CarMoveLeft(uint8_t Speed);
+void App_CarMoveForward(uint8_t Speed);
+void App_CarMoveReverse(uint8_t Speed);
+void App_CarMoveRight(uint8_t Speed);
+void App_CarMoveLeft(uint8_t Speed);
 void App_CarStop(void);
-uint8_t App_SendDuty(void);
+void Set_Speed(uint8_t Copy_U8Data);
+uint8_t Send_Speed(void);
 
 #endif /* DCM_INTERFACE_H_ */

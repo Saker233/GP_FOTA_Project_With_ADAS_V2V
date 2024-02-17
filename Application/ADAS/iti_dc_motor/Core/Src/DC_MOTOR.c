@@ -19,7 +19,7 @@
 #define PIN_LEVEL_HIGH  1
 #define PIN_LEVEL_LOW   0
 
-uint8_t  flag=0;
+uint8_t static user_speed;
 
 /*@Name          DCM_Init
  *@Arguments     void
@@ -95,11 +95,10 @@ void DCM_Stop(uint8_t  DCM_Number){
  *@Return         no return
  *@Description    this function is used to move the car forward
  */
-uint8_t App_CarMoveForward( uint8_t Speed){
-	flag=1;
+void App_CarMoveForward( uint8_t Speed){
+	Set_Speed(Speed);
 	DCM_Move(DCM_RIGHT_SIDE,Speed,DCM_FORWARD);
 	DCM_Move(DCM_LEFT_SIDE,Speed,DCM_FORWARD);
-	return Speed;
 }
 
 
@@ -108,12 +107,10 @@ uint8_t App_CarMoveForward( uint8_t Speed){
  *@Return        no return
  *@Description   this function is used to move the car in reverse direction
  */
-uint8_t  App_CarMoveReverse(uint8_t Speed){
-	flag=2;
-
+void  App_CarMoveReverse(uint8_t Speed){
+	Set_Speed(Speed);
 	DCM_Move(DCM_RIGHT_SIDE,Speed,DCM_REVERSE);
 	DCM_Move(DCM_LEFT_SIDE,Speed,DCM_REVERSE);
-	return Speed;
 
 }
 
@@ -122,12 +119,10 @@ uint8_t  App_CarMoveReverse(uint8_t Speed){
  *@Return        no return
  *@Description   this function is used to move the car right
  */
-uint8_t App_CarMoveRight(uint8_t Speed){
-	flag=3;
-
+void App_CarMoveRight(uint8_t Speed){
+	Set_Speed(Speed);
 	DCM_Move(DCM_RIGHT_SIDE,Speed,DCM_REVERSE);
 	DCM_Move(DCM_LEFT_SIDE,Speed,DCM_FORWARD);
-	return Speed;
 
 
 }
@@ -138,12 +133,11 @@ uint8_t App_CarMoveRight(uint8_t Speed){
  *@Return        no return
  *@Description   this function is used to move the car left
  */
-uint8_t  App_CarMoveLeft(uint8_t Speed){
-	flag=4;
+void  App_CarMoveLeft(uint8_t Speed){
+	set_speed(Speed);
 	DCM_Move(DCM_RIGHT_SIDE,Speed,DCM_FORWARD);
 	DCM_Move(DCM_LEFT_SIDE,Speed,DCM_REVERSE);
 
-	return Speed;
 }
 
 /*@Name       	 App_CarStop
@@ -156,27 +150,27 @@ void App_CarStop(){
 	DCM_Stop(DCM_RIGHT_SIDE);
 }
 
+/*@Name       	 set_speed
+ *@Arguments     uint8_t Copy_U8Data
+ *@Return        no return
+ *@Description   Get the speed of the car from user
+ */
 
-
-uint8_t App_SendDuty(void)
+void Set_Speed(uint8_t Copy_U8Data)
 {
-	uint8_t local_var;
-   switch (flag)
-   {
-
-   case 1:
-	   local_var= App_CarMoveForward(uint8_t Speed); break;
-   case 2:
-	    local_var=App_CarMoveReverse(uint8_t Speed); break;
-   case 3:
-	   local_var=App_CarMoveRight(uint8_t Speed);   break;
-   case 4:
-	   local_var=App_CarMoveLeft(uint8_t Speed);   break;
-	  //default:
-    // code block
-   }
-    return  local_var;
-
+	user_speed= Copy_U8Data;
 }
+
+/*@Name       	 Send_Speed
+ *@Arguments     void
+ *@Return        return
+ *@Description   this function is used to send the speed to the other applications
+ */
+
+uint8_t Send_Speed(void)
+{
+	return user_speed;
+}
+
 
 
