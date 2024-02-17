@@ -32,7 +32,6 @@
 /* Private typedef -----------------------------------------------------------*/
 volatile extern CAN_InitTypeDef             CAN_InitStruct;
 volatile extern CAN_FilterInitTypeDef       CAN_FilterInitStruct_0;
-//volatile extern CAN_FilterInitTypeDef       CAN_FilterInitStruct_4;
 
 
 

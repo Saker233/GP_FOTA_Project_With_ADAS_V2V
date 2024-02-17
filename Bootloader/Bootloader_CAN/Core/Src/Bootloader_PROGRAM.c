@@ -59,7 +59,7 @@ void BL_Check_Active_Bank()
 		else
 		{
 			/* If no then update the validity flag as not appropriate then make softwarwe reset */
-			NVM_voidEraseRestoreHeaderPage(BANK1_STATUS_ADDRESS, BOOTLOADER_BANK_NOT_APPROPRIATE);
+			NVM_voidUpdateControlPage(BANK1_STATUS_ADDRESS, BOOTLOADER_BANK_NOT_APPROPRIATE);
 			WWDT_voidMakeSoftWareReset();
 		}
 	}
@@ -112,7 +112,7 @@ u32 BL_u32Check_Bank2()
 		else
 		{
 			/* if it's not the same CRC value then we will update the flag and return not appropeiate */
-			NVM_voidEraseRestoreHeaderPage(BANK2_STATUS_ADDRESS, BOOTLOADER_BANK_NOT_APPROPRIATE);
+			NVM_voidUpdateControlPage(BANK2_STATUS_ADDRESS, BOOTLOADER_BANK_NOT_APPROPRIATE);
 			result =  BOOTLOADER_BANK_NOT_APPROPRIATE;
 		}
 	}
@@ -200,8 +200,8 @@ void BL_voidUpdate_Control_Page()
 			BL_voidCopy_Bank1_To_Bank2();
 		}
 
-		NVM_voidEraseRestoreHeaderPage(BANK1_SIZE_ADDRESS, Bank_Size);
-		NVM_voidEraseRestoreHeaderPage(BANK1_SIZE_ADDRESS, CRC_Value);
+		NVM_voidUpdateControlPage(BANK1_SIZE_ADDRESS, Bank_Size);
+		NVM_voidUpdateControlPage(BANK1_CRC_ADDRESS, CRC_Value);
 	}
 
 }
@@ -320,17 +320,17 @@ void BL_voidCopy_Bank2_To_Bank1()
 
 	/* Updating the control page with the new falsg values  */
 	/* Updating bank 1 size */
-	NVM_voidEraseRestoreHeaderPage(BANK1_SIZE_ADDRESS, Bank2_Size);
+	NVM_voidUpdateControlPage(BANK1_SIZE_ADDRESS, Bank2_Size);
 
 	/* Updating CRC value */
-	NVM_voidEraseRestoreHeaderPage(BANK1_CRC_ADDRESS, Bank2_CRC);
+	NVM_voidUpdateControlPage(BANK1_CRC_ADDRESS, Bank2_CRC);
 
 	/* Making the bank 1 active */
-	NVM_voidEraseRestoreHeaderPage(BANK1_STATUS_ADDRESS, BOOTLOADER_APP_IS_IN_BANK1);
+	NVM_voidUpdateControlPage(BANK1_STATUS_ADDRESS, BOOTLOADER_APP_IS_IN_BANK1);
 
 
 	/* making bank 2 back up */
-	NVM_voidEraseRestoreHeaderPage(BANK2_STATUS_ADDRESS, BOOTLOADER_BACKUP_IS_IN_BANK2);
+	NVM_voidUpdateControlPage(BANK2_STATUS_ADDRESS, BOOTLOADER_BACKUP_IS_IN_BANK2);
 
 }
 
@@ -380,17 +380,17 @@ void BL_voidCopy_Bank1_To_Bank2()
 
 	/* Updating the control page with the new falsg values  */
 	/* Updating bank 1 size */
-	NVM_voidEraseRestoreHeaderPage(BANK2_SIZE_ADDRESS, Bank1_Size);
+	NVM_voidUpdateControlPage(BANK2_SIZE_ADDRESS, Bank1_Size);
 
 	/* Updating CRC value */
-	NVM_voidEraseRestoreHeaderPage(BANK2_CRC_ADDRESS, Bank1_CRC);
+	NVM_voidUpdateControlPage(BANK2_CRC_ADDRESS, Bank1_CRC);
 
 	/* Making the bank 1 active */
-	NVM_voidEraseRestoreHeaderPage(BANK2_STATUS_ADDRESS, BOOTLOADER_BACKUP_IS_IN_BANK2);
+	NVM_voidUpdateControlPage(BANK2_STATUS_ADDRESS, BOOTLOADER_BACKUP_IS_IN_BANK2);
 
 
 	/* making bank 2 back up */
-	NVM_voidEraseRestoreHeaderPage(BANK2_STATUS_ADDRESS, BOOTLOADER_APP_IS_IN_BANK1);
+	NVM_voidUpdateControlPage(BANK2_STATUS_ADDRESS, BOOTLOADER_APP_IS_IN_BANK1);
 
 }
 
@@ -403,7 +403,7 @@ void BL_voidSet_Specifying_Flag_Make_SW_Reset()
 {
 
 	/* Making Specifying flag with zero in order to be able to recive new code  */
-	NVM_voidEraseRestoreHeaderPage(BL_SPECIFYING_BANK_FLAG, SET_SPECIFYING_FLAG);
+	NVM_voidUpdateControlPage(BL_SPECIFYING_BANK_FLAG, SET_SPECIFYING_FLAG);
 
 	/* SOftware Reset via watchdog timer */
 	IWDT_voidMakeSoftWareReset();
@@ -494,8 +494,8 @@ void BL_void_Finish_Bootloader()
 	/* Requesting a code from the gatewayy */
 	CanIf_voidTransmit_Byte(UDS_MCU_ACKNOWLEDGE_FINISHING);
 
-	NVM_voidEraseRestoreHeaderPage(BANK1_STATUS_ADDRESS, BOOTLOADER_APP_IS_IN_BANK1);
-	NVM_voidEraseRestoreHeaderPage(BANK2_STATUS_ADDRESS, BOOTLOADER_BACKUP_IS_IN_BANK2);
+	NVM_voidUpdateControlPage(BANK1_STATUS_ADDRESS, BOOTLOADER_APP_IS_IN_BANK1);
+	NVM_voidUpdateControlPage(BANK2_STATUS_ADDRESS, BOOTLOADER_BACKUP_IS_IN_BANK2);
 
 	if(First_Flash == 1)
 	{
@@ -504,7 +504,7 @@ void BL_void_Finish_Bootloader()
 		BL_voidCopy_Bank1_To_Bank2();
 	}
 
-	NVM_voidEraseRestoreHeaderPage(BL_SPECIFYING_BANK_FLAG, RESET_SPECIFYING_FLAG);
+	NVM_voidUpdateControlPage(BL_SPECIFYING_BANK_FLAG, RESET_SPECIFYING_FLAG);
 
 	IWDT_voidMakeSoftWareReset();
 }

@@ -23,7 +23,7 @@
 
 #define ADDRESS_OF_STARTUP_BANK1		            0x08001400
 #define ADDRESS_OF_BANK1	                        0x08001404
-#define NUMBER_OF_FIRST_PAGE_IN_BANK1			    5
+#define NUMBER_OF_FIRST_PAGE_IN_BANK1			    7
 #define NUMBER_OF_LAST_PAGE_IN_BANK1		        33
 
 

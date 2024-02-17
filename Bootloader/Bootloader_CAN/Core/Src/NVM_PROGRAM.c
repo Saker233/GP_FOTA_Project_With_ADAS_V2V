@@ -30,7 +30,7 @@
 * Function Definitions
 *******************************************************************************/
 
-void NVM_voidEraseRestoreHeaderPage(u32 Copy_u32Address, u32 Copy_u32NewData)
+void NVM_voidUpdateControlPage(u32 Copy_u32Address, u32 Copy_u32NewData)
 {
 	u32 Local_u32AddressArray[NUMBER_OF_FLAGS];
 	u32 Local_u32DataArray[NUMBER_OF_FLAGS];

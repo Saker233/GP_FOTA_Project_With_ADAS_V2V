@@ -32,6 +32,6 @@
 
 void UDS_voidDetectNewCode(u8 Copy_u8ReceivedValue);
 
-void NVM_voidEraseRestoreHeaderPage(u32 Copy_u32Address, u32 Copy_u32NewData);
+void NVM_voidUpdateControlPage(u32 Copy_u32Address, u32 Copy_u32NewData);
 
 #endif /* INC_NVM_INTERFACE_H_ */
