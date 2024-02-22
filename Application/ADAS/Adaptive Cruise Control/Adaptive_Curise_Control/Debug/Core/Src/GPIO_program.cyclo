@@ -1,0 +1,9 @@
+../Core/Src/GPIO_program.c:15:6:MGPIO_voidSetPinMode	5
+../Core/Src/GPIO_program.c:33:6:MGPIO_voidSetOutputType	5
+../Core/Src/GPIO_program.c:50:6:MGPIO_voidSetOutputSpeed	5
+../Core/Src/GPIO_program.c:67:6:MGPIO_voidSetPull	5
+../Core/Src/GPIO_program.c:84:4:MGPIO_u8GetpinValue	5
+../Core/Src/GPIO_program.c:97:6:MGPIO_voidSetPinValue	11
+../Core/Src/GPIO_program.c:123:6:MGPIO_voidSetPortValue	5
+../Core/Src/GPIO_program.c:142:6:MGPIO_voidDirectSetReset	11
+../Core/Src/GPIO_program.c:168:6:MGPIO_voidSetAltFunc	11

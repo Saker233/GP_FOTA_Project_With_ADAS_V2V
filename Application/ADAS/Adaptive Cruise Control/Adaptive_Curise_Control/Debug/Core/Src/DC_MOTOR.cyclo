@@ -1,0 +1,10 @@
+../Core/Src/DC_MOTOR.c:31:6:DCM_Init	1
+../Core/Src/DC_MOTOR.c:49:6:DCM_Move	7
+../Core/Src/DC_MOTOR.c:82:6:DCM_Stop	3
+../Core/Src/DC_MOTOR.c:98:6:App_CarMoveForward	1
+../Core/Src/DC_MOTOR.c:110:7:App_CarMoveReverse	1
+../Core/Src/DC_MOTOR.c:122:6:App_CarMoveRight	1
+../Core/Src/DC_MOTOR.c:136:7:App_CarMoveLeft	1
+../Core/Src/DC_MOTOR.c:148:6:App_CarStop	1
+../Core/Src/DC_MOTOR.c:159:6:Set_Speed	1
+../Core/Src/DC_MOTOR.c:170:9:Send_Speed	1
