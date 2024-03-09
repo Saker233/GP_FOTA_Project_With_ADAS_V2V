@@ -19,7 +19,7 @@
 #define PIN_LEVEL_HIGH  1
 #define PIN_LEVEL_LOW   0
 
-uint8_t static user_speed;
+uint32_t static user_speed;
 
 /*@Name          DCM_Init
  *@Arguments     void
@@ -95,7 +95,7 @@ void DCM_Stop(uint8_t  DCM_Number){
  *@Return         no return
  *@Description    this function is used to move the car forward
  */
-void App_CarMoveForward( uint8_t Speed){
+void App_CarMoveForward( uint32_t Speed){
 	Set_Speed(Speed);
 	DCM_Move(DCM_RIGHT_SIDE,Speed,DCM_FORWARD);
 	DCM_Move(DCM_LEFT_SIDE,Speed,DCM_FORWARD);
@@ -107,7 +107,7 @@ void App_CarMoveForward( uint8_t Speed){
  *@Return        no return
  *@Description   this function is used to move the car in reverse direction
  */
-void  App_CarMoveReverse(uint8_t Speed){
+void  App_CarMoveReverse(uint32_t Speed){
 	Set_Speed(Speed);
 	DCM_Move(DCM_RIGHT_SIDE,Speed,DCM_REVERSE);
 	DCM_Move(DCM_LEFT_SIDE,Speed,DCM_REVERSE);
@@ -119,11 +119,10 @@ void  App_CarMoveReverse(uint8_t Speed){
  *@Return        no return
  *@Description   this function is used to move the car right
  */
-void App_CarMoveRight(uint8_t Speed){
+void App_CarMoveRight(uint32_t Speed){
 	Set_Speed(Speed);
-	DCM_Move(DCM_RIGHT_SIDE,Speed,DCM_REVERSE);
 	DCM_Move(DCM_LEFT_SIDE,Speed,DCM_FORWARD);
-
+	DCM_Move(DCM_RIGHT_SIDE,Speed-30,DCM_FORWARD);
 
 }
 
@@ -133,10 +132,10 @@ void App_CarMoveRight(uint8_t Speed){
  *@Return        no return
  *@Description   this function is used to move the car left
  */
-void  App_CarMoveLeft(uint8_t Speed){
+void  App_CarMoveLeft(uint32_t Speed){
 	Set_Speed(Speed);
 	DCM_Move(DCM_RIGHT_SIDE,Speed,DCM_FORWARD);
-	DCM_Move(DCM_LEFT_SIDE,Speed,DCM_REVERSE);
+	DCM_Move(DCM_LEFT_SIDE,Speed-30,DCM_FORWARD);
 
 }
 
@@ -156,7 +155,7 @@ void App_CarStop(){
  *@Description   Get the speed of the car from user
  */
 
-void Set_Speed(uint8_t Copy_U8Data)
+void Set_Speed(uint32_t Copy_U8Data)
 {
 	user_speed= Copy_U8Data;
 }
@@ -167,7 +166,7 @@ void Set_Speed(uint8_t Copy_U8Data)
  *@Description   this function is used to send the speed to the other applications
  */
 
-uint8_t Send_Speed(void)
+uint32_t Send_Speed(void)
 {
 	return user_speed;
 }

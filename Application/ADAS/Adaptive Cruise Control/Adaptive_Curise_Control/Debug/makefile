@@ -60,8 +60,8 @@ all: main-build
 main-build: Adaptive_Curise_Control.elf secondary-outputs
 
 # Tool invocations
-Adaptive_Curise_Control.elf Adaptive_Curise_Control.map: $(OBJS) $(USER_OBJS) D:\ITI\Graduation\ Project\CubeIDE\Adaptive_Curise_Control\STM32F401CCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Adaptive_Curise_Control.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\ITI\Graduation Project\CubeIDE\Adaptive_Curise_Control\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Adaptive_Curise_Control.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Adaptive_Curise_Control.elf Adaptive_Curise_Control.map: $(OBJS) $(USER_OBJS) E:\Embedded\ IMT\ITI\gdp\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive\ Cruise\ Control\Adaptive_Curise_Control\STM32F401CCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Adaptive_Curise_Control.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\Embedded IMT\ITI\gdp\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive Cruise Control\Adaptive_Curise_Control\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Adaptive_Curise_Control.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

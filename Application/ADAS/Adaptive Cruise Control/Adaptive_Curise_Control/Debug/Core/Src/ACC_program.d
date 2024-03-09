@@ -28,8 +28,9 @@ Core/Src/ACC_program.o: ../Core/Src/ACC_program.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Core/Src/UltraSonic.h ../Core/Src/DCM_Interface.h \
- ../Core/Src/V2V_interface.h ../Core/Src/nrf24l01p.h ../Core/Inc/spi.h \
- ../Core/Inc/main.h ../Core/Src/ACC_config.h ../Core/Src/ACC_private.h \
+ ../Core/Src/DCM_Config.h ../Core/Src/V2V_interface.h \
+ ../Core/Src/nrf24l01p.h ../Core/Inc/spi.h ../Core/Inc/main.h \
+ ../Core/Src/ACC_config.h ../Core/Src/ACC_private.h \
  ../Core/Src/ACC_interface.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -62,6 +63,7 @@ Core/Src/ACC_program.o: ../Core/Src/ACC_program.c ../Core/Inc/main.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
 ../Core/Src/UltraSonic.h:
 ../Core/Src/DCM_Interface.h:
+../Core/Src/DCM_Config.h:
 ../Core/Src/V2V_interface.h:
 ../Core/Src/nrf24l01p.h:
 ../Core/Inc/spi.h:

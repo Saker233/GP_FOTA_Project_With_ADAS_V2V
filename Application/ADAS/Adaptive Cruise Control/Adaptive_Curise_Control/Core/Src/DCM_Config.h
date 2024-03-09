@@ -14,7 +14,7 @@
  *  TIM_CHANNEL_2
  *  TIM_CHANNEL_3
  *  TIM_CHANNEL_4
- *  TIM_CHANNEL_ALL
+ *  TIM_CHANNEL_ALLt
  *
  * */
 
@@ -40,9 +40,4 @@
 #define   DCM_2_IN2_PIN_ID                             GPIO_PIN_7
 
 #endif /* DCM_CONFIG_H_ */
-/*
- * #define SET_BIT(REG, BIT)     ((REG) |= (BIT))
 
-#define CLEAR_BIT(REG, BIT)   ((REG) &= ~(BIT))
-
-#define READ_BIT(REG, BIT)    ((REG) & (BIT))*/

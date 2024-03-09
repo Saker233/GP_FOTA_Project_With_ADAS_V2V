@@ -21,7 +21,7 @@
 #include "spi.h"
 #include "tim.h"
 #include "gpio.h"
-
+#include "ACC_interface.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -91,13 +91,15 @@ int main(void)
   MX_SPI2_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-
+  ACC_voidInit();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+
+	  ACC_voidRun();
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

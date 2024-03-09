@@ -12,7 +12,7 @@
 /********************************************************************************************/
 /************************************* Included Files ***************************************/
 /********************************************************************************************/
-//#include "DCM_Config.h"
+#include "DCM_Config.h"
 
 /*******************************************************************************************/
 /************************************* Motor Macro *****************************************/
@@ -40,12 +40,12 @@ void DCM_Init(void);
 void DCM_Move(uint8_t  DCM_Number,uint8_t Duty_Cycle, DCM_DirectionType Direction);
 void DCM_Stop(uint8_t  DCM_Number);
 
-void App_CarMoveForward(uint8_t Speed);
-void App_CarMoveReverse(uint8_t Speed);
-void App_CarMoveRight(uint8_t Speed);
-void App_CarMoveLeft(uint8_t Speed);
+void App_CarMoveForward(uint32_t Speed);
+void App_CarMoveReverse(uint32_t Speed);
+void App_CarMoveRight(uint32_t Speed);
+void App_CarMoveLeft(uint32_t Speed);
 void App_CarStop(void);
-void Set_Speed(uint8_t Copy_U8Data);
-uint8_t Send_Speed(void);
+void Set_Speed(uint32_t Copy_U8Data);
+uint32_t Send_Speed(void);
 
 #endif /* DCM_INTERFACE_H_ */
