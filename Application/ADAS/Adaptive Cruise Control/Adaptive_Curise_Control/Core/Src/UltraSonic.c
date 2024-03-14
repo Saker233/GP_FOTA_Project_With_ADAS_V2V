@@ -1,4 +1,10 @@
-
+/*******************************************************************************************/
+/*  Module       :   Ultrasonic Sensor                                                     */
+/*  File Name    :   UltraSonic.c                                                          */
+/*  Description  :   program file for the Ultrasonic Sensor                                */
+/*  Author       :   AHMED_REDA & AHMED KHALED                                             */
+/*  Date         :   2/2/2024                                                              */
+/*******************************************************************************************/
 
 #include "main.h"
 #include "UltraSonic.h"

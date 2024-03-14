@@ -52,6 +52,12 @@ default.size.stdout \
 OBJDUMP_LIST += \
 Adaptive_Curise_Control.list \
 
+OBJCOPY_HEX += \
+Adaptive_Curise_Control.hex \
+
+OBJCOPY_BIN += \
+Adaptive_Curise_Control.bin \
+
 
 # All Target
 all: main-build
@@ -60,8 +66,8 @@ all: main-build
 main-build: Adaptive_Curise_Control.elf secondary-outputs
 
 # Tool invocations
-Adaptive_Curise_Control.elf Adaptive_Curise_Control.map: $(OBJS) $(USER_OBJS) E:\Embedded\ IMT\ITI\gdp\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive\ Cruise\ Control\Adaptive_Curise_Control\STM32F401CCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Adaptive_Curise_Control.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\Embedded IMT\ITI\gdp\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive Cruise Control\Adaptive_Curise_Control\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Adaptive_Curise_Control.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Adaptive_Curise_Control.elf Adaptive_Curise_Control.map: $(OBJS) $(USER_OBJS) D:\ITI\Graduation\ Project\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive\ Cruise\ Control\Adaptive_Curise_Control\STM32F401CCUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Adaptive_Curise_Control.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\ITI\Graduation Project\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive Cruise Control\Adaptive_Curise_Control\STM32F401CCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Adaptive_Curise_Control.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -75,12 +81,22 @@ Adaptive_Curise_Control.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TO
 	@echo 'Finished building: $@'
 	@echo ' '
 
+Adaptive_Curise_Control.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "Adaptive_Curise_Control.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+Adaptive_Curise_Control.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "Adaptive_Curise_Control.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) Adaptive_Curise_Control.elf Adaptive_Curise_Control.list Adaptive_Curise_Control.map default.size.stdout
+	-$(RM) Adaptive_Curise_Control.bin Adaptive_Curise_Control.elf Adaptive_Curise_Control.hex Adaptive_Curise_Control.list Adaptive_Curise_Control.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

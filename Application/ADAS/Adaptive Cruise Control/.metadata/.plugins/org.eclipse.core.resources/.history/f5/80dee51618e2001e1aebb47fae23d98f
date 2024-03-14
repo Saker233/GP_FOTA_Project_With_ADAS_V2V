@@ -1,0 +1,38 @@
+
+
+#ifndef SRC_ACC_INTERFACE_H_
+#define SRC_ACC_INTERFACE_H_
+
+
+
+
+
+#define CAR      FRONT           // FRONT or BACK
+
+
+/********************************************************************************
+ * Name : ACC_voidInit
+ * Arguments : Void
+ * Return : Void
+ * Description :  The purpose of this function is to initialize various modules
+ *   or components typically used in an Advanced Cruise Control (ACC) system.
+ *   It initializes modules related to motor control (DCM_Init()),
+ *   vehicle-to-vehicle communication (V2V_voidInit()),
+ *   and ultrasonic sensors (UltraSonic_voidInit()).
+ ********************************************************************************/
+
+
+
+void ACC_voidInit(void);
+
+
+
+
+
+
+void ACC_voidRun(void);
+
+
+
+
+#endif /* SRC_ACC_INTERFACE_H_ */

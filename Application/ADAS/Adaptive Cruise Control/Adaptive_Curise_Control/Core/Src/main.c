@@ -22,6 +22,7 @@
 #include "tim.h"
 #include "gpio.h"
 #include "ACC_interface.h"
+#include "DCM_Interface.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -98,7 +99,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-
 	  ACC_voidRun();
     /* USER CODE END WHILE */
 

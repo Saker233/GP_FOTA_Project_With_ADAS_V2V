@@ -1,0 +1,10 @@
+17:53:50 **** Incremental Build of configuration Debug for project Adaptive_Curise_Control ****
+make -j4 all 
+arm-none-eabi-size  Adaptive_Curise_Control.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19416	     20	   1844	  21280	   5320	Adaptive_Curise_Control.elf
+Finished building: default.size.stdout
+ 
+
+17:53:50 Build Finished. 0 errors, 0 warnings. (took 321ms)
+

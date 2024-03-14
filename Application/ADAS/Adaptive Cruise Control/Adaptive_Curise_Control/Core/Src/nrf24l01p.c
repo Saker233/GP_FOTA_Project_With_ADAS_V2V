@@ -1,10 +1,10 @@
-/*
- *  nrf24l01_plus.c
- *
- *  Created on: 2021. 7. 20.
- *      Author: mokhwasomssi
- * 
- */
+/*******************************************************************************************/
+/*  Module       :   NRF24L01 Sensor                                                       */
+/*  File Name    :   nrf24l01p.c                                                           */
+/*  Description  :   program file for the NRF24L01 Sensor                                  */
+/*  Author       :   AHMED_REDA & AHMED KHALED                                             */
+/*  Date         :   2/2/2024                                                              */
+/*******************************************************************************************/
 
 #include "main.h"
 #include "nrf24l01p.h"

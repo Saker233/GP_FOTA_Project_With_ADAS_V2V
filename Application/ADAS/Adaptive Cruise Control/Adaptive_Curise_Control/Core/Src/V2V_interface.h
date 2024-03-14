@@ -22,16 +22,42 @@ typedef enum V2V_state
 }V2VState_t;
 
 
+
+/********************************************************************************
+ * Name : V2V_voidInit
+ * Arguments : V2VState_t state (RECIEVER or TRANSMITTER)
+ * Return : Void
+ * Description :  The purpose of the V2V_voidInit() function is to initialize
+ * the vehicle-to-vehicle (V2V) communication module based on the specified state,
+ *  either as a receiver or a transmitter.
+ ********************************************************************************/
+
+
+
 void V2V_voidInit(V2VState_t state);
+
+/********************************************************************************
+ * Name : V2V_voidSendData
+ * Arguments : uint8_t* Copy_u8Data (Pointer to array of Chars)
+ * Return : Void
+ * Description :  The purpose of the V2V_voidSendData() function is to transmit
+ * data using the vehicle-to-vehicle (V2V) communication module.
+ ********************************************************************************/
+
+
 void V2V_voidSendData(uint8_t* Copy_u8Data);
+
+
+/********************************************************************************
+ * Name : V2V_u8RecieveData
+ * Arguments : uint8_t * Copy_p8Buffer (Pointer to array of Chars)
+ * Return : Void
+ * Description :  The purpose of the V2V_u8RecieveData() function is to receive data
+ * using the vehicle-to-vehicle (V2V) communication module.
+ ********************************************************************************/
+
+
 uint8_t V2V_u8RecieveData(uint8_t * Copy_p8Buffer );
-
-
-
-
-
-
-
 
 
 

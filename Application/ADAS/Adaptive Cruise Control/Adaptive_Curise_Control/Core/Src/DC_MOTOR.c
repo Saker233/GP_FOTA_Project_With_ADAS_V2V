@@ -88,6 +88,7 @@ void DCM_Stop(uint8_t  DCM_Number){
 		  HAL_TIM_PWM_Stop(&htim2, DCM_2_SPEED_CHANNEL);
 
 	}
+
 }
 
 /*@Name       	  App_CarMoveForward
@@ -145,8 +146,9 @@ void  App_CarMoveLeft(uint32_t Speed){
  *@Description   this function is used to stop the car
  */
 void App_CarStop(){
-	DCM_Stop(DCM_LEFT_SIDE);
-	DCM_Stop(DCM_RIGHT_SIDE);
+//	DCM_Stop(DCM_LEFT_SIDE);
+//	DCM_Stop(DCM_RIGHT_SIDE);
+	App_CarMoveForward(0);
 }
 
 /*@Name       	 set_speed
