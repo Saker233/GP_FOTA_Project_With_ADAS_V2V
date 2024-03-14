@@ -925,3 +925,22 @@ Command-line arguments:  -os win32 -ws win32 -arch x86_64 D:\ITI\Graduation Proj
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-03-14 17:20:30.258
 !MESSAGE Indexed 'Adaptive_Curise_Control' (30 sources, 134 headers) in 7.06 sec: 12,823 declarations; 62,394 references; 1 unresolved inclusions; 92 syntax errors; 241 unresolved names (0.32%)
+!SESSION 2024-03-14 17:57:08.594 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  D:\ITI\Graduation Project\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive Cruise Control\Adaptive_Curise_Control\.cproject
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 D:\ITI\Graduation Project\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive Cruise Control\Adaptive_Curise_Control\.cproject
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-03-14 17:57:14.611
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-03-14 17:57:14.611
+!MESSAGE Log4j2 initialized with config file D:\ITI\Graduation Project\GP_FOTA_Project_With_ADAS_V2V\Application\ADAS\Adaptive Cruise Control\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-03-14 17:57:21.544
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-03-14 17:57:32.413
+!MESSAGE Indexed 'Adaptive_Curise_Control' (30 sources, 134 headers) in 10.3 sec: 12,823 declarations; 62,394 references; 1 unresolved inclusions; 92 syntax errors; 241 unresolved names (0.32%)
