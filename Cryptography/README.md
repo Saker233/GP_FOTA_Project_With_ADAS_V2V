@@ -33,13 +33,13 @@ source /path/to/secret_keys.env
 1. **OEM_encryption.py**: Encrypts a file using RSA encryption.
 
     ```bash
-    python OEM_encryption.py /path/to/file.txt
+    python OEM_encryption.py /path/to/file.hex
     ```
 
 2. **OEM_signature.py**: Generates a cryptographic signature for a file using HMAC-SHA256.
 
     ```bash
-    python OEM_signature.py /path/to/file.txt
+    python OEM_signature.py /path/to/file.hex
     ```
 
 3. **concatenation_script.py**: Concatenates two files with a delimiter.
