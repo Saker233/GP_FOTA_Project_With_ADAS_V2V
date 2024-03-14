@@ -53,8 +53,3 @@ source /path/to/secret_key.env
     ```bash
     python RPI_scenario.py /path/to/concatenated_file.hex /path/to/old_digest.hex /path/to/new_digest.hex
     ```
-
-### Contribution
-
-Contributions to this part of the project are welcome. If you find any bugs or have suggestions for improvement, please open an issue or submit a pull request.
-```
